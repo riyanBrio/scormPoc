@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SCORM Wrapper - Dummy API</title>
+  <style>
+    html, body, iframe {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  // Dummy SCORM 1.2 API + extra methods
+  window.API = {
+    LMSInitialize: function() { console.log("LMSInitialize called"); return "true"; },
+    LMSFinish: function() { console.log("LMSFinish called"); return "true"; },
+    LMSGetValue: function(param) { console.log("LMSGetValue:", param); return ""; },
+    LMSSetValue: function(param, value) { console.log("LMSSetValue:", param, value); return "true"; },
+    LMSCommit: function() { console.log("LMSCommit called"); return "true"; },
+    LMSGetLastError: function() { return "0"; },
+    LMSGetErrorString: function() { return "No error"; },
+    LMSGetDiagnostic: function() { return "No diagnostic"; },
+
+    // Extra methods some packages expect
+    CommitData: function() { console.log("CommitData called"); return "true"; },
+    ConcedeControl: function() { console.log("ConcedeControl called"); return "true"; },
+    CreateResponseIdentifier: function() { console.log("CreateResponseIdentifier called"); return "dummy"; },
+    Finish: function() { console.log("Finish called"); return "true"; },
+    GetDataChunk: function() { console.log("GetDataChunk called"); return ""; },
+    GetStatus: function() { console.log("GetStatus called"); return "incomplete"; },
+    MatchingResponse: function() { console.log("MatchingResponse called"); return "true"; },
+    RecordFillInInteraction: function() { console.log("RecordFillInInteraction called"); return "true"; },
+    RecordMatchingInteraction: function() { console.log("RecordMatchingInteraction called"); return "true"; },
+    RecordMultipleChoiceInteraction: function() { console.log("RecordMultipleChoiceInteraction called"); return "true"; },
+    ResetStatus: function() { console.log("ResetStatus called"); return "true"; },
+    SetBookmark: function(bookmark) { console.log("SetBookmark:", bookmark); return "true"; },
+    SetDataChunk: function(chunk) { console.log("SetDataChunk:", chunk); return "true"; },
+    SetFailed: function() { console.log("SetFailed called"); return "true"; },
+    SetLanguagePreference: function(lang) { console.log("SetLanguagePreference:", lang); return "true"; },
+    SetPassed: function() { console.log("SetPassed called"); return "true"; },
+    SetReachedEnd: function() { console.log("SetReachedEnd called"); return "true"; },
+    SetScore: function(score) { console.log("SetScore:", score); return "true"; },
+    WriteToDebug: function(msg) { console.log("Debug:", msg); return "true"; }
+  };
+</script>
+
+<!-- Load your SCORM content in an iframe -->
+<iframe src="scormcontent/index.html"></iframe>
+
+</body>
+</html>
